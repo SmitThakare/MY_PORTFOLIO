@@ -1,0 +1,1671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smit Thakare | ML Engineer & AI Systems Architect | Columbia University</title>
+    <meta name="description" content="Smit Thakare - Machine Learning Engineer specializing in NLP, multimodal systems, and production-grade AI. MS CS @ Columbia University. Building AI systems that scale.">
+    <meta name="keywords" content="Smit Thakare, ML Engineer, Machine Learning Engineer, AI Engineer, NLP Engineer, Columbia University, Computer Science, AI Systems, Deep Learning, PyTorch, Python">
+    <meta name="author" content="Smit Thakare">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://smitthakare.com">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smitthakare.com/">
+    <meta property="og:title" content="Smit Thakare | ML Engineer & AI Systems Architect">
+    <meta property="og:description" content="Machine Learning Engineer specializing in NLP and production-grade AI systems. MS CS @ Columbia University.">
+    <meta property="og:image" content="https://smitthakare.com/preview.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://smitthakare.com/">
+    <meta property="twitter:title" content="Smit Thakare | ML Engineer & AI Systems Architect">
+    <meta property="twitter:description" content="Machine Learning Engineer specializing in NLP and production-grade AI systems. MS CS @ Columbia University.">
+    <meta property="twitter:image" content="https://smitthakare.com/preview.png">
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Smit Thakare",
+      "url": "https://smitthakare.com",
+      "image": "https://smitthakare.com/photo.jpg",
+      "jobTitle": "Machine Learning Engineer",
+      "worksFor": {
+        "@type": "EducationalOrganization",
+        "name": "Columbia University"
+      },
+      "alumniOf": [
+        {
+          "@type": "EducationalOrganization",
+          "name": "Columbia University",
+          "description": "MS Computer Science - Machine Learning"
+        },
+        {
+          "@type": "EducationalOrganization",
+          "name": "K.J. Somaiya College of Engineering",
+          "description": "B.Tech Information Technology"
+        }
+      ],
+      "knowsAbout": ["Machine Learning", "Natural Language Processing", "Deep Learning", "Computer Vision", "PyTorch", "Python", "AI Systems"],
+      "sameAs": [
+        "https://github.com/SmitThakare",
+        "https://linkedin.com/in/smit-thakare"
+      ]
+    }
+    </script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0e1a;
+            --bg-secondary: #121826;
+            --bg-card: #1a2332;
+            --text-primary: #e4e7f0;
+            --text-secondary: #a0a8c5;
+            --text-muted: #6b7394;
+            --accent-primary: #00d4ff;
+            --accent-secondary: #0066ff;
+            --gradient-start: #00d4ff;
+            --gradient-end: #0066ff;
+            --border-color: rgba(255, 255, 255, 0.06);
+            --metric-green: #00ff94;
+            --metric-yellow: #ffd60a;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Neural Network Background */
+        .neural-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        .neural-node {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .neural-line {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+            opacity: 0.3;
+            animation: flow 4s linear infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.3); }
+        }
+
+        @keyframes flow {
+            0% { opacity: 0; }
+            50% { opacity: 0.6; }
+            100% { opacity: 0; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Layout */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 14, 26, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 100;
+            padding: 1.5rem 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            font-family: 'Azeret Mono', monospace;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 0 80px;
+            position: relative;
+        }
+
+        .hero-content {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-label {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent-primary);
+            margin-bottom: 2rem;
+            font-family: 'Azeret Mono', monospace;
+            letter-spacing: 0.05em;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.03em;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(0, 212, 255, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-primary);
+            background: rgba(0, 212, 255, 0.05);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1rem;
+            font-family: 'Azeret Mono', monospace;
+        }
+
+        h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-description {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* About Section */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-story {
+            font-size: 1.15rem;
+            line-height: 2;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .about-story p {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-story strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .highlight-metric {
+            color: var(--accent-primary);
+            font-weight: 700;
+        }
+
+        /* Experience Cards */
+        .experience-grid {
+            display: grid;
+            gap: 2.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .experience-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .experience-card:hover {
+            border-color: rgba(0, 212, 255, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .experience-card:hover::before {
+            opacity: 1;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1.5rem;
+            gap: 1rem;
+        }
+
+        .exp-company {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .exp-role {
+            font-size: 1rem;
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+
+        .exp-date {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-family: 'Azeret Mono', monospace;
+            white-space: nowrap;
+        }
+
+        .exp-description {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .exp-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-tag {
+            padding: 0.4rem 0.9rem;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: var(--accent-primary);
+            font-family: 'Azeret Mono', monospace;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-card:hover {
+            border-color: rgba(0, 212, 255, 0.4);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .project-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-tagline {
+            font-size: 1rem;
+            color: var(--accent-primary);
+            font-weight: 500;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: rgba(0, 212, 255, 0.03);
+            border-radius: 8px;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        .metric {
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--metric-green);
+            font-family: 'Azeret Mono', monospace;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .metric-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .skills-category {
+            margin-bottom: 3rem;
+        }
+
+        .skills-category-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .skills-category-title::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: linear-gradient(180deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 2px;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .skill-item {
+            padding: 0.8rem 1.4rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            border-color: var(--accent-primary);
+            background: rgba(0, 212, 255, 0.05);
+            transform: translateY(-2px);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-email {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            text-decoration: none;
+            display: inline-block;
+            margin: 2rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .contact-email:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .social-link:hover {
+            color: var(--accent-primary);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 0;
+            text-align: center;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            margin-top: 100px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                padding: 100px 0 60px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .exp-header {
+                flex-direction: column;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        .scroll-indicator::after {
+            content: '↓';
+            font-size: 2rem;
+            color: var(--accent-primary);
+            opacity: 0.6;
+        }
+
+        /* Profile Photo */
+        .profile-photo-container {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            margin: 3rem auto;
+        }
+
+        .profile-photo {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            object-fit: cover;
+            border: 3px solid var(--border-color);
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .profile-photo-container::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+
+        .profile-photo-container:hover::before {
+            opacity: 1;
+        }
+
+        .profile-photo-container:hover .profile-photo {
+            transform: scale(1.02);
+        }
+
+        /* Company Logos */
+        .logos-container {
+            margin: 4rem 0;
+        }
+
+        .logos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 3rem;
+            align-items: center;
+            justify-items: center;
+            padding: 2rem 0;
+        }
+
+        .logo-item {
+            width: 140px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: grayscale(100%) brightness(0.7);
+            transition: all 0.3s ease;
+            opacity: 0.6;
+        }
+
+        .logo-item:hover {
+            filter: grayscale(0%) brightness(1);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .logo-item img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .logos-label {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 2rem;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 3rem auto;
+            background: var(--bg-card);
+            padding: 3rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-family: 'Azeret Mono', monospace;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
+        }
+
+        .form-submit:active {
+            transform: translateY(0);
+        }
+
+        .form-message {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            display: none;
+        }
+
+        .form-message.success {
+            background: rgba(0, 255, 148, 0.1);
+            border: 1px solid rgba(0, 255, 148, 0.3);
+            color: var(--metric-green);
+        }
+
+        .form-message.error {
+            background: rgba(255, 64, 64, 0.1);
+            border: 1px solid rgba(255, 64, 64, 0.3);
+            color: #ff4040;
+        }
+
+        /* Resume Download Button */
+        .resume-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding: 1rem 2rem;
+            background: var(--bg-card);
+            border: 2px solid var(--accent-primary);
+            border-radius: 8px;
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            margin: 2rem auto;
+        }
+
+        .resume-download:hover {
+            background: rgba(0, 212, 255, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .resume-download::before {
+            content: '↓';
+            font-size: 1.3rem;
+            font-weight: 900;
+        }
+    </style>
+</head>
+<body>
+    <!-- Neural Network Background -->
+    <div class="neural-bg" id="neuralBg"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">ST</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-label">ML ENGINEER @ COLUMBIA</div>
+                <h1>Research that ships.</h1>
+<p class="hero-subtitle">
+    MS CS in Machine Learning. 
+    Building production NLP and multimodal systems.
+</p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                </div>
+            </div>
+            <div class="scroll-indicator"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">About</div>
+                <h2>The Story</h2>
+            </div>
+            
+            <!-- Profile Photo -->
+            <div class="profile-photo-container">
+                <img src="photo.jpg" alt="Smit Thakare - ML Engineer" class="profile-photo">
+            </div>
+            
+            <div class="about-content">
+                <div class="about-story">
+                    <p>
+                        I started in Mumbai, tinkering with code and obsessing over how machines could learn. 
+                        What began as curiosity evolved into a mission: <strong>build AI systems that aren't just impressive demos, 
+                        but production-ready solutions that scale and deliver measurable impact.</strong>
+                    </p>
+                    <p>
+                        At Columbia University, I'm pursuing an MS in Computer Science with a focus on Machine Learning, 
+                        working on everything from <span class="highlight-metric">NLP systems</span> to 
+                        <span class="highlight-metric">multimodal AI architectures</span>. My approach? Combine rigorous 
+                        research with systems thinking—understand the theory, then build something that actually works in the real world.
+                    </p>
+                    <p>
+                        What excites me most is the intersection of <strong>research and engineering</strong>. I care deeply about 
+                        metrics, performance optimization, and deployment trade-offs. Whether it's reducing inference costs by 
+                        <span class="highlight-metric">40%</span> through intelligent model routing or building multimodal 
+                        search systems with <span class="highlight-metric">CLIP and BLIP</span>, I focus on solutions that 
+                        balance technical sophistication with practical execution.
+                    </p>
+                    <p>
+                        Beyond code, I've published research on extractive summarization, led technical teams, and maintained 
+                        a <span class="highlight-metric">9.2/10 GPA</span> throughout my undergraduate studies. Now, I'm actively 
+                        seeking <strong>Summer 2026 internships</strong> where I can contribute to cutting-edge ML systems at scale.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Experience</div>
+                <h2>Where I've Built</h2>
+            </div>
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-company">Columbia Business School</div>
+                            <div class="exp-role">Student Research Worker • Dean's Office</div>
+                        </div>
+                        <div class="exp-date">2025 - Present</div>
+                    </div>
+                    <p class="exp-description">
+                        Supporting behavioral research initiatives and data analysis projects at Columbia's Dean's Office. 
+                        Applying statistical methods and ML techniques to research questions in organizational behavior and decision-making.
+                    </p>
+                    <div class="exp-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Statistical Analysis</span>
+                        <span class="tech-tag">Research Methods</span>
+                    </div>
+                </div>
+
+                <div class="experience-card">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-company">Columbia University</div>
+                            <div class="exp-role">Graduate Student • MS Computer Science</div>
+                        </div>
+                        <div class="exp-date">2024 - 2026</div>
+                    </div>
+                    <p class="exp-description">
+                        Specializing in Machine Learning with coursework in NLP, Applied ML, Algorithms, and Databases. 
+                        Built production-grade projects including multimodal search systems, LLM cost optimization frameworks, 
+                        and autonomous agent architectures. Published research on extractive summarization.
+                    </p>
+                    <div class="exp-tech">
+                        <span class="tech-tag">NLP</span>
+                        <span class="tech-tag">Deep Learning</span>
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">Cloud Infrastructure</span>
+                    </div>
+                </div>
+
+                <div class="experience-card">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-company">Savic Technologies</div>
+                            <div class="exp-role">Machine Learning Intern</div>
+                        </div>
+                        <div class="exp-date">2023</div>
+                    </div>
+                    <p class="exp-description">
+                        Developed and deployed ML models for real-world applications. Focused on model optimization, 
+                        feature engineering, and production deployment pipelines. Collaborated with cross-functional teams 
+                        to deliver data-driven solutions.
+                    </p>
+                    <div class="exp-tech">
+                        <span class="tech-tag">TensorFlow</span>
+                        <span class="tech-tag">Feature Engineering</span>
+                        <span class="tech-tag">Model Deployment</span>
+                    </div>
+                </div>
+
+                <div class="experience-card">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-company">Electra Enterprises</div>
+                            <div class="exp-role">Software Engineering Intern</div>
+                        </div>
+                        <div class="exp-date">2022</div>
+                    </div>
+                    <p class="exp-description">
+                        Built full-stack applications and backend systems. Implemented RESTful APIs, optimized database 
+                        queries, and contributed to system architecture decisions. Gained experience in production 
+                        software development and deployment workflows.
+                    </p>
+                    <div class="exp-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">REST APIs</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Docker</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logos Section -->
+    <section style="padding: 60px 0; background: var(--bg-secondary);">
+        <div class="container">
+            <div class="logos-label">Worked, Studied & Published At</div>
+            <div class="logos-grid">
+                <!-- Columbia University -->
+                <div class="logo-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Columbia_University_seal.svg/200px-Columbia_University_seal.svg.png" alt="Columbia University">
+                </div>
+                
+                <!-- K.J. Somaiya -->
+                <div class="logo-item">
+                    <img src="https://www.somaiya.edu/assets/university/img/logos/new-university-logo-2.svg" alt="K.J. Somaiya College">
+                </div>
+                
+                <!-- Savic Technologies -->
+                <div class="logo-item">
+                    <img src="savic.jpg" alt="Savic Technologies">
+                </div>
+                
+                <!-- Electra -->
+                <div class="logo-item">
+                    <img src="electra.png" alt="Electra Enterprises">
+                </div>
+                
+                <!-- GitHub (Publications) -->
+                <div class="logo-item">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" style="width: 60px; height: 60px;">
+                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Projects</div>
+                <h2>Technical Deep Dives</h2>
+                <p class="section-description">
+                    Production-grade ML systems that combine research rigor with engineering excellence
+                </p>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Project 1: DreamCamera -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">DreamCamera</h3>
+                        <p class="project-tagline">Multimodal Photo Search Engine</p>
+                    </div>
+                    <p class="project-description">
+                        Built a semantic photo search system using <strong>CLIP and BLIP</strong> for natural language image queries. 
+                        Enables users to search their photo library with descriptions like "sunset at the beach" or "my dog playing." 
+                        Implemented zero-shot classification and cross-modal retrieval with FAISS for efficient similarity search.
+                    </p>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <span class="metric-value">95%</span>
+                            <span class="metric-label">Accuracy</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">&lt;200ms</span>
+                            <span class="metric-label">Query Time</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">10K+</span>
+                            <span class="metric-label">Images</span>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        <strong>Why it's impressive:</strong> Bridges vision and language modalities using state-of-the-art 
+                        transformers. Handles semantic understanding, not just keyword matching. Production-ready with 
+                        sub-200ms query latency on large image collections.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">CLIP</span>
+                        <span class="tech-tag">BLIP</span>
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">FAISS</span>
+                        <span class="tech-tag">Transformers</span>
+                    </div>
+                </div>
+
+                <!-- Project 2: LLM Router -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Intelligent LLM Router</h3>
+                        <p class="project-tagline">Cost-Optimized Model Selection Framework</p>
+                    </div>
+                    <p class="project-description">
+                        Designed a routing system that dynamically selects between GPT-4, Claude, and Llama based on query 
+                        complexity and cost constraints. Uses lightweight classifiers to predict optimal model choice, 
+                        reducing inference costs by <strong>40%</strong> while maintaining 95%+ quality.
+                    </p>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <span class="metric-value">40%</span>
+                            <span class="metric-label">Cost Reduction</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">95%+</span>
+                            <span class="metric-label">Quality Retained</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">3</span>
+                            <span class="metric-label">Models</span>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        <strong>Trade-offs considered:</strong> Balance between cost savings and response quality. 
+                        Implemented fallback mechanisms for edge cases. Optimized routing latency to stay below 50ms overhead.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">LLMs</span>
+                        <span class="tech-tag">Cost Optimization</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">Model Routing</span>
+                    </div>
+                </div>
+
+                <!-- Project 3: Autonomous Agent -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Autonomous Information Agent</h3>
+                        <p class="project-tagline">Intelligent Text Classification & Storage System</p>
+                    </div>
+                    <p class="project-description">
+                        Built an autonomous agent that extracts, classifies, and stores information from unstructured text 
+                        using <strong>Google Gemini API</strong>. Automatically processes documents, identifies key entities, 
+                        and organizes data in Google Cloud Storage with intelligent tagging and retrieval mechanisms.
+                    </p>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <span class="metric-value">Gemini</span>
+                            <span class="metric-label">LLM</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">GCS</span>
+                            <span class="metric-label">Storage</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">Auto</span>
+                            <span class="metric-label">Pipeline</span>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        <strong>System design:</strong> End-to-end pipeline with text preprocessing, LLM-based classification, 
+                        structured data extraction, and cloud storage integration. Deployed on Render with automated workflows.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Gemini API</span>
+                        <span class="tech-tag">GCP</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">NLP</span>
+                        <span class="tech-tag">Cloud Storage</span>
+                    </div>
+                </div>
+
+                <!-- Project 4: CropSense -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">CropSense AI</h3>
+                        <p class="project-tagline">ML-Powered Agricultural Decision Platform</p>
+                    </div>
+                    <p class="project-description">
+                        AI-driven agricultural platform that recommends optimal crops, fertilizer strategies, and detects 
+                        plant diseases using <strong>ML and deep learning</strong>. Built with Flask, PyTorch, and computer 
+                        vision models. Processes soil data, weather patterns, and crop images to provide actionable insights.
+                    </p>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <span class="metric-value">92%</span>
+                            <span class="metric-label">Disease Detection</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">15+</span>
+                            <span class="metric-label">Crop Types</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">Flask</span>
+                            <span class="metric-label">Backend</span>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        <strong>Real-world impact:</strong> Helps farmers make data-driven decisions about crop selection 
+                        and disease management. Combines traditional ML (for tabular data) with CNNs (for image classification).
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">Computer Vision</span>
+                        <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">CNNs</span>
+                        <span class="tech-tag">ML</span>
+                    </div>
+                </div>
+
+                <!-- Project 5: Medical Chatbot -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Medical Assistant Chatbot</h3>
+                        <p class="project-tagline">RAG-Powered Healthcare AI</p>
+                    </div>
+                    <p class="project-description">
+                        AI-powered medical assistant using <strong>Retrieval-Augmented Generation (RAG)</strong> and Chainlit. 
+                        Retrieves relevant medical information from knowledge base and generates contextual responses. 
+                        Built with vector databases for semantic search and LLMs for natural language understanding.
+                    </p>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <span class="metric-value">RAG</span>
+                            <span class="metric-label">Architecture</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">Vector</span>
+                            <span class="metric-label">Search</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">Chainlit</span>
+                            <span class="metric-label">Framework</span>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        <strong>Technical approach:</strong> Combines embedding models for semantic retrieval with LLMs for 
+                        response generation. Ensures factual accuracy by grounding responses in retrieved medical documents.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">RAG</span>
+                        <span class="tech-tag">Chainlit</span>
+                        <span class="tech-tag">Vector DB</span>
+                        <span class="tech-tag">LLMs</span>
+                        <span class="tech-tag">NLP</span>
+                    </div>
+                </div>
+
+                <!-- Project 6: Research Publication -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Extractive Summarization Research</h3>
+                        <p class="project-tagline">Published NLP Research</p>
+                    </div>
+                    <p class="project-description">
+                        Published research on extractive text summarization techniques. Investigated graph-based methods, 
+                        sentence ranking algorithms, and semantic similarity measures for automatic summary generation. 
+                        Compared approaches on benchmark datasets and proposed optimizations.
+                    </p>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <span class="metric-value">Published</span>
+                            <span class="metric-label">Status</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">NLP</span>
+                            <span class="metric-label">Domain</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">Research</span>
+                            <span class="metric-label">Type</span>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        <strong>Research contribution:</strong> Demonstrated ability to conduct rigorous research, 
+                        implement experiments, and communicate findings. Shows depth in NLP fundamentals and academic writing.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">NLP</span>
+                        <span class="tech-tag">Summarization</span>
+                        <span class="tech-tag">Research</span>
+                        <span class="tech-tag">Graph Algorithms</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Skills</div>
+                <h2>Technical Arsenal</h2>
+            </div>
+
+            <div class="skills-container">
+                <div class="skills-category">
+                    <h3 class="skills-category-title">Machine Learning & AI</h3>
+                    <div class="skills-list">
+                        <span class="skill-item">PyTorch</span>
+                        <span class="skill-item">TensorFlow</span>
+                        <span class="skill-item">Transformers</span>
+                        <span class="skill-item">CLIP / BLIP</span>
+                        <span class="skill-item">LLMs (GPT, Claude, Gemini)</span>
+                        <span class="skill-item">Computer Vision</span>
+                        <span class="skill-item">NLP</span>
+                        <span class="skill-item">RAG Systems</span>
+                        <span class="skill-item">Model Optimization</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3 class="skills-category-title">Backend & Infrastructure</h3>
+                    <div class="skills-list">
+                        <span class="skill-item">Python</span>
+                        <span class="skill-item">FastAPI</span>
+                        <span class="skill-item">Flask</span>
+                        <span class="skill-item">PostgreSQL</span>
+                        <span class="skill-item">MongoDB</span>
+                        <span class="skill-item">Docker</span>
+                        <span class="skill-item">REST APIs</span>
+                        <span class="skill-item">Microservices</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3 class="skills-category-title">Cloud & Deployment</h3>
+                    <div class="skills-list">
+                        <span class="skill-item">Google Cloud Platform</span>
+                        <span class="skill-item">AWS</span>
+                        <span class="skill-item">Render</span>
+                        <span class="skill-item">Cloud Storage</span>
+                        <span class="skill-item">CI/CD</span>
+                        <span class="skill-item">Model Serving</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3 class="skills-category-title">Data & Analytics</h3>
+                    <div class="skills-list">
+                        <span class="skill-item">Pandas</span>
+                        <span class="skill-item">NumPy</span>
+                        <span class="skill-item">Statistical Analysis</span>
+                        <span class="skill-item">Feature Engineering</span>
+                        <span class="skill-item">Data Visualization</span>
+                        <span class="skill-item">A/B Testing</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3 class="skills-category-title">Algorithms & Systems</h3>
+                    <div class="skills-list">
+                        <span class="skill-item">Algorithm Design</span>
+                        <span class="skill-item">Data Structures</span>
+                        <span class="skill-item">Distributed Systems</span>
+                        <span class="skill-item">Performance Optimization</span>
+                        <span class="skill-item">System Design</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Contact</div>
+                <h2>Let's Build Together</h2>
+                <p class="section-description">
+                    I'm actively seeking <strong>Summer 2026 internships</strong> in ML/AI engineering. 
+                    Open to full-time opportunities post-graduation (December 2026).
+                </p>
+            </div>
+
+            <div class="contact-content">
+                <!-- Resume Download -->
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <a href="resume.pdf" download class="resume-download">
+                        Download Resume
+                    </a>
+                </div>
+
+                <!-- Contact Form -->
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Your name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <input type="text" id="subject" name="subject" required placeholder="What's this about?">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required placeholder="Tell me more..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="form-submit">Send Message</button>
+                    
+                    <div class="form-message" id="formMessage"></div>
+                </form>
+
+                <!-- Direct Contact -->
+                <div style="text-align: center; margin-top: 3rem;">
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">Or reach me directly:</p>
+                    <a href="mailto:smit.thakare@columbia.edu" class="contact-email" style="font-size: 1.5rem;">smit.thakare@columbia.edu</a>
+                </div>
+                
+                <div class="social-links">
+                    <a href="https://github.com/SmitThakare" target="_blank" class="social-link">
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/smit-thakare/" target="_blank" class="social-link">
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://scholar.google.com/citations?user=your-id" target="_blank" class="social-link">
+                        <span>Google Scholar</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Smit Thakare. Built with precision and purpose.</p>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Neural Network Background Animation
+        function createNeuralBackground() {
+            const container = document.getElementById('neuralBg');
+            const numNodes = 30;
+            const nodes = [];
+
+            // Create nodes
+            for (let i = 0; i < numNodes; i++) {
+                const node = document.createElement('div');
+                node.className = 'neural-node';
+                node.style.left = Math.random() * 100 + '%';
+                node.style.top = Math.random() * 100 + '%';
+                node.style.animationDelay = Math.random() * 3 + 's';
+                container.appendChild(node);
+                nodes.push({
+                    element: node,
+                    x: parseFloat(node.style.left),
+                    y: parseFloat(node.style.top)
+                });
+            }
+
+            // Create connections between nearby nodes
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    const dx = nodes[j].x - nodes[i].x;
+                    const dy = nodes[j].y - nodes[i].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 25) { // Connect nodes within 25% distance
+                        const line = document.createElement('div');
+                        line.className = 'neural-line';
+                        
+                        const angle = Math.atan2(dy, dx);
+                        const length = distance;
+                        
+                        line.style.width = length + '%';
+                        line.style.left = nodes[i].x + '%';
+                        line.style.top = nodes[i].y + '%';
+                        line.style.transform = `rotate(${angle}rad)`;
+                        line.style.transformOrigin = '0 0';
+                        line.style.animationDelay = Math.random() * 4 + 's';
+                        
+                        container.appendChild(line);
+                    }
+                }
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Initialize
+        createNeuralBackground();
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.project-card, .experience-card, .skills-category').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Contact Form Handler
+        const contactForm = document.getElementById('contactForm');
+        const formMessage = document.getElementById('formMessage');
+
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = contactForm.querySelector('.form-submit');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            // Get form data
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData);
+            
+            // Use Formspree or similar service - replace with your endpoint
+            // For now, we'll show a success message
+            // In production, replace this with actual form submission
+            
+            try {
+                // Simulate API call
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                
+                // Show success message
+                formMessage.textContent = 'Message sent successfully! I\'ll get back to you soon.';
+                formMessage.className = 'form-message success';
+                formMessage.style.display = 'block';
+                
+                // Reset form
+                contactForm.reset();
+                
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    formMessage.style.display = 'none';
+                }, 5000);
+                
+            } catch (error) {
+                // Show error message
+                formMessage.textContent = 'Oops! Something went wrong. Please email me directly.';
+                formMessage.className = 'form-message error';
+                formMessage.style.display = 'block';
+            } finally {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
