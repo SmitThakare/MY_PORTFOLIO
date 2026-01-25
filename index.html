@@ -269,6 +269,7 @@
             gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
+            margin-bottom: 80px;
         }
 
         .btn {
@@ -341,26 +342,162 @@
             line-height: 1.8;
         }
 
+        /* Journey Timeline */
+        .journey-timeline {
+            max-width: 1000px;
+            margin: 4rem auto;
+            position: relative;
+        }
+
+        .timeline-container {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                var(--accent-primary) 0%, 
+                var(--accent-primary) 33%, 
+                var(--accent-secondary) 66%, 
+                var(--metric-green) 100%);
+            transform: translateY(-50%);
+        }
+
+        .timeline-items {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .timeline-item {
+            text-align: center;
+            position: relative;
+        }
+
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            background: var(--accent-primary);
+            border: 4px solid var(--bg-primary);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+
+        .timeline-item:nth-child(2) .timeline-dot {
+            background: var(--accent-secondary);
+            box-shadow: 0 0 20px rgba(0, 102, 255, 0.5);
+        }
+
+        .timeline-item:nth-child(3) .timeline-dot {
+            background: var(--metric-green);
+            box-shadow: 0 0 20px rgba(0, 255, 148, 0.5);
+        }
+
+        .timeline-content {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            border-color: rgba(0, 212, 255, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .timeline-year {
+            font-size: 0.85rem;
+            color: var(--accent-primary);
+            font-family: 'Azeret Mono', monospace;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.8rem;
+        }
+
+        .timeline-highlight {
+            font-size: 0.85rem;
+            color: var(--metric-green);
+            font-weight: 600;
+        }
+
         /* About Section */
         .about-content {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
-        .about-story {
-            font-size: 1.15rem;
-            line-height: 2;
+        .about-intro {
+            font-size: 1.3rem;
+            line-height: 1.9;
             color: var(--text-secondary);
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
         }
 
-        .about-story p {
-            margin-bottom: 1.5rem;
-        }
-
-        .about-story strong {
+        .about-intro strong {
             color: var(--text-primary);
             font-weight: 600;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .about-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .about-card:hover {
+            border-color: rgba(0, 212, 255, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .about-card-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            margin-bottom: 0.8rem;
+        }
+
+        .about-card-text {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
         }
 
         .highlight-metric {
@@ -655,116 +792,7 @@
             transform: translateY(-2px);
         }
 
-        /* Footer */
-        footer {
-            padding: 3rem 0;
-            text-align: center;
-            color: var(--text-muted);
-            border-top: 1px solid var(--border-color);
-            margin-top: 100px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero {
-                padding: 100px 0 60px;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .exp-header {
-                flex-direction: column;
-            }
-
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            h2 {
-                font-size: 2rem;
-            }
-
-            section {
-                padding: 60px 0;
-            }
-        }
-
-        /* Scroll indicator */
-        .scroll-indicator {
-            position: absolute;
-            bottom: 55px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateX(-50%) translateY(0);
-            }
-            40% {
-                transform: translateX(-50%) translateY(-10px);
-            }
-            60% {
-                transform: translateX(-50%) translateY(-5px);
-            }
-        }
-
-        .scroll-indicator::after {
-            content: '↓';
-            font-size: 2rem;
-            color: var(--accent-primary);
-            opacity: 0.6;
-        }
-
-        /* Profile Photo */
-        .profile-photo-container {
-            position: relative;
-            width: 280px;
-            height: 280px;
-            margin: 3rem auto;
-        }
-
-        .profile-photo {
-            width: 100%;
-            height: 100%;
-            border-radius: 20px;
-            object-fit: cover;
-            border: 3px solid var(--border-color);
-            transition: all 0.4s ease;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .profile-photo-container::before {
-            content: '';
-            position: absolute;
-            inset: -3px;
-            border-radius: 20px;
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            z-index: -1;
-        }
-
-        .profile-photo-container:hover::before {
-            opacity: 1;
-        }
-
-        .profile-photo-container:hover .profile-photo {
-            transform: scale(1.02);
-        }
-
         /* Company Logos */
-        .logos-container {
-            margin: 4rem 0;
-        }
-
         .logos-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -927,6 +955,82 @@
             font-size: 1.3rem;
             font-weight: 900;
         }
+
+        /* Footer */
+        footer {
+            padding: 3rem 0;
+            text-align: center;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            margin-top: 100px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                padding: 100px 0 60px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .exp-header {
+                flex-direction: column;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .timeline-items {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-line {
+                display: none;
+            }
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        .scroll-indicator::after {
+            content: '↓';
+            font-size: 2rem;
+            color: var(--accent-primary);
+            opacity: 0.6;
+        }
     </style>
 </head>
 <body>
@@ -953,11 +1057,10 @@
             <div class="hero-content">
                 <div class="hero-label">ML ENGINEER @ COLUMBIA</div>
                 <h1>From research<br>to production.</h1>
-
-<p class="hero-subtitle">
-    MS CS in Machine Learning. 
-    Building production NLP and multimodal systems.
-</p>
+                <p class="hero-subtitle">
+                    MS CS in Machine Learning. 
+                    Building production NLP and multimodal systems.
+                </p>
                 <div class="cta-buttons">
                     <a href="#projects" class="btn btn-primary">View Projects</a>
                     <a href="#contact" class="btn btn-secondary">Get in Touch</a>
@@ -972,38 +1075,106 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-label">About</div>
-                <h2>The Story</h2>
+                <h2>Building AI That Ships</h2>
             </div>
             
             <!-- Profile Photo -->
-            <div class="profile-photo-container">
-                <img src="photo.jpg" alt="Smit Thakare - ML Engineer" class="profile-photo">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <div style="position: relative; width: 280px; height: 280px; margin: 0 auto;">
+                    <img src="photo.jpg" alt="Smit Thakare - ML Engineer" style="width: 100%; height: 100%; border-radius: 20px; object-fit: cover; border: 3px solid var(--border-color); box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);">
+                </div>
             </div>
             
             <div class="about-content">
-                <div class="about-story">
+                <div class="about-intro">
                     <p>
-                        I started in Mumbai, tinkering with code and obsessing over how machines could learn. 
-                        What began as curiosity evolved into a mission: <strong>build AI systems that aren't just impressive demos, 
-                        but production-ready solutions that scale and deliver measurable impact.</strong>
+                        I build ML systems that work on the internet. Started coding in Mumbai, 
+                        now at Columbia—focused on the gap between <strong>research papers and production deployments</strong>.
                     </p>
+                </div>
+
+                <!-- Journey Timeline -->
+                <div class="journey-timeline">
+                    <div class="timeline-container">
+                        <div class="timeline-line"></div>
+                        <div class="timeline-items">
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <div class="timeline-year">2021 - 2025</div>
+                                    <div class="timeline-title">Mumbai</div>
+                                    <div class="timeline-subtitle">K.J. Somaiya College</div>
+                                    <div class="timeline-highlight">9.3/10 GPA • Published Research</div>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <div class="timeline-year">2024</div>
+                                    <div class="timeline-title">Internships</div>
+                                    <div class="timeline-subtitle">Savic Tech & Electra</div>
+                                    <div class="timeline-highlight">Production ML Systems</div>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <div class="timeline-year">2025 - Present</div>
+                                    <div class="timeline-title">New York</div>
+                                    <div class="timeline-subtitle">Columbia University</div>
+                                    <div class="timeline-highlight">MS CS • Machine Learning</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- About Cards -->
+                <div class="about-grid">
+                    <div class="about-card">
+                        <div class="about-card-icon">🏎️  🏈</div>
+                        <div class="about-card-title">Strategy & Precision</div>
+                        <div class="about-card-text">
+                            F1 and Patriots fan. Both sports teach what ML needs: 
+                            split-second decisions matter, strategy beats brute force, teams win championships. 
+                            Whether it's a qualifying lap or a fourth-down call, execution under constraints defines success.
+                        </div>
+                    </div>
+
+                    <div class="about-card">
+                        <div class="about-card-icon">🎵</div>
+                        <div class="about-card-title">Jazz + Coffee = Code</div>
+                        <div class="about-card-text">
+                            My workflow: jazz playing, coffee brewing, code flowing. The best debugging happens 
+                            at 2 AM with Miles Davis in the background. Unconventional setup, consistent results.
+                        </div>
+                    </div>
+
+                    <div class="about-card">
+                        <div class="about-card-icon">🌍</div>
+                        <div class="about-card-title">Languages & Problems</div>
+                        <div class="about-card-text">
+                            NYC taught me: ask more, listen more, find more problems worth solving. 
+                            Picked up Chinese, French, Spanish along the way. Different languages, 
+                            different perspectives, better solutions.
+                        </div>
+                    </div>
+
+                    <div class="about-card">
+                        <div class="about-card-icon">⚡</div>
+                        <div class="about-card-title">Data Quality > Quantity</div>
+                        <div class="about-card-text">
+                            Contrarian take: Our models are undertrained, not oversized. The real bottleneck? 
+                            <span class="highlight-metric">LLM-generated data polluting training sets</span>. 
+                            We need better data sources, not bigger models.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-intro" style="margin-top: 3rem;">
                     <p>
-                        At Columbia University, I'm pursuing an MS in Computer Science with a focus on Machine Learning, 
-                        working on everything from <span class="highlight-metric">NLP systems</span> to 
-                        <span class="highlight-metric">multimodal AI architectures</span>. My approach? Combine rigorous 
-                        research with systems thinking—understand the theory, then build something that actually works in the real world.
-                    </p>
-                    <p>
-                        What excites me most is the intersection of <strong>research and engineering</strong>. I care deeply about 
-                        metrics, performance optimization, and deployment trade-offs. Whether it's reducing inference costs by 
-                        <span class="highlight-metric">40%</span> through intelligent model routing or building multimodal 
-                        search systems with <span class="highlight-metric">CLIP and BLIP</span>, I focus on solutions that 
-                        balance technical sophistication with practical execution.
-                    </p>
-                    <p>
-                        Beyond code, I've published research on extractive summarization, led technical teams, and maintained 
-                        a <span class="highlight-metric">9.2/10 GPA</span> throughout my undergraduate studies. Now, I'm actively 
-                        seeking <strong>Summer 2026 internships</strong> where I can contribute to cutting-edge ML systems at scale.
+                        <strong>Currently seeking Summer 2026 ML/AI internships</strong> where I can contribute 
+                        to production systems at scale. Open to full-time post-graduation (December 2026).
                     </p>
                 </div>
             </div>
@@ -1021,10 +1192,29 @@
                 <div class="experience-card">
                     <div class="exp-header">
                         <div>
+                            <div class="exp-company">Columbia Disability Services</div>
+                            <div class="exp-role">Exam Proctor</div>
+                        </div>
+                        <div class="exp-date">2026 - Present</div>
+                    </div>
+                    <p class="exp-description">
+                        Facilitating academic accommodations for students with disabilities by proctoring exams in modified testing environments. 
+                        Ensuring equitable access to education while maintaining academic integrity and confidentiality standards.
+                    </p>
+                    <div class="exp-tech">
+                        <span class="tech-tag">Academic Support</span>
+                        <span class="tech-tag">Accessibility</span>
+                        <span class="tech-tag">Compliance</span>
+                    </div>
+                </div>
+
+                <div class="experience-card">
+                    <div class="exp-header">
+                        <div>
                             <div class="exp-company">Columbia Business School</div>
                             <div class="exp-role">Student Research Worker • Dean's Office</div>
                         </div>
-                        <div class="exp-date">2025 - Present</div>
+                        <div class="exp-date">2026 - Present</div>
                     </div>
                     <p class="exp-description">
                         Supporting behavioral research initiatives and data analysis projects at Columbia's Dean's Office. 
@@ -1043,7 +1233,7 @@
                             <div class="exp-company">Columbia University</div>
                             <div class="exp-role">Graduate Student • MS Computer Science</div>
                         </div>
-                        <div class="exp-date">2024 - 2026</div>
+                        <div class="exp-date">2025 - Present</div>
                     </div>
                     <p class="exp-description">
                         Specializing in Machine Learning with coursework in NLP, Applied ML, Algorithms, and Databases. 
@@ -1064,7 +1254,7 @@
                             <div class="exp-company">Savic Technologies</div>
                             <div class="exp-role">Machine Learning Intern</div>
                         </div>
-                        <div class="exp-date">2023</div>
+                        <div class="exp-date">2025</div>
                     </div>
                     <p class="exp-description">
                         Developed and deployed ML models for real-world applications. Focused on model optimization, 
@@ -1084,7 +1274,7 @@
                             <div class="exp-company">Electra Enterprises</div>
                             <div class="exp-role">Software Engineering Intern</div>
                         </div>
-                        <div class="exp-date">2022</div>
+                        <div class="exp-date">2024</div>
                     </div>
                     <p class="exp-description">
                         Built full-stack applications and backend systems. Implemented RESTful APIs, optimized database 
@@ -1136,6 +1326,7 @@
             </div>
         </div>
     </section>
+
     <!-- Projects Section -->
     <section id="projects">
         <div class="container">
@@ -1505,7 +1696,9 @@
                 <!-- Direct Contact -->
                 <div style="text-align: center; margin-top: 3rem;">
                     <p style="color: var(--text-secondary); margin-bottom: 1rem;">Or reach me directly:</p>
-                    <a href="mailto:smit.thakare@columbia.edu" class="contact-email" style="font-size: 1.5rem;">smit.thakare@columbia.edu</a>
+                    <a href="mailto:smit.thakare@columbia.edu" class="contact-email" style="font-size: 1.5rem;">
+                        smit.thakare@columbia.edu
+                    </a>
                 </div>
                 
                 <div class="social-links">
@@ -1559,7 +1752,7 @@
                     const dy = nodes[j].y - nodes[i].y;
                     const distance = Math.sqrt(dx * dx + dy * dy);
 
-                    if (distance < 25) { // Connect nodes within 25% distance
+                    if (distance < 25) {
                         const line = document.createElement('div');
                         line.className = 'neural-line';
                         
@@ -1579,6 +1772,26 @@
             }
         }
 
+        // Animated Counter
+        function animateCounter(element) {
+            const target = parseInt(element.getAttribute('data-target'));
+            if (isNaN(target)) return; // Skip non-numeric values
+            
+            const duration = 2000;
+            const increment = target / (duration / 16);
+            let current = 0;
+
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 16);
+        }
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1596,7 +1809,7 @@
         // Initialize
         createNeuralBackground();
 
-        // Intersection Observer for fade-in animations
+        // Intersection Observer for fade-in animations and counters
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1607,12 +1820,21 @@
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateY(0)';
+                    
+                    // Animate counters within this element
+                    const counters = entry.target.querySelectorAll('[data-target]');
+                    counters.forEach(counter => {
+                        if (!counter.classList.contains('animated')) {
+                            counter.classList.add('animated');
+                            animateCounter(counter);
+                        }
+                    });
                 }
             });
         }, observerOptions);
 
-        // Observe all cards and sections
-        document.querySelectorAll('.project-card, .experience-card, .skills-category').forEach(el => {
+        // Observe all cards, sections, and stats
+        document.querySelectorAll('.project-card, .experience-card, .skills-category, .about-card, .timeline-item').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -1631,33 +1853,20 @@
             submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
             
-            // Get form data
-            const formData = new FormData(contactForm);
-            const data = Object.fromEntries(formData);
-            
-            // Use Formspree or similar service - replace with your endpoint
-            // For now, we'll show a success message
-            // In production, replace this with actual form submission
-            
             try {
-                // Simulate API call
                 await new Promise(resolve => setTimeout(resolve, 1000));
                 
-                // Show success message
                 formMessage.textContent = 'Message sent successfully! I\'ll get back to you soon.';
                 formMessage.className = 'form-message success';
                 formMessage.style.display = 'block';
                 
-                // Reset form
                 contactForm.reset();
                 
-                // Hide message after 5 seconds
                 setTimeout(() => {
                     formMessage.style.display = 'none';
                 }, 5000);
                 
             } catch (error) {
-                // Show error message
                 formMessage.textContent = 'Oops! Something went wrong. Please email me directly.';
                 formMessage.className = 'form-message error';
                 formMessage.style.display = 'block';
